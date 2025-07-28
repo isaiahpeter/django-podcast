@@ -1,0 +1,20 @@
+databases:
+  - name: postgres
+    databaseName: growth_table
+    user: growth_table
+
+services:
+  - type: web
+    name: growth-table
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn podcast_project.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: postgres
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
