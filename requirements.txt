@@ -26,6 +26,7 @@ packaging==25.0
 phonenumberslite==9.0.10
 psycopg2-binary==2.9.10
 pydub==0.25.1
+audioop-lts
 pytz==2025.2
 PyYAML==6.0.2
 requests==2.32.4
